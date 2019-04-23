@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Page</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <h1>Insert Page</h1>
+    <hr />
+    <fieldset>
+        <legend>Insert data</legend>
+        <table>
+            <tr>
+                <td><label>Email</label></td>
+                <td><input type="text" name="userEmail" id="userEmail" /></td>
+            </tr>
+            <tr>
+                <td><label>Password</label></td>
+                <td><input type="password" name="userPassword" id="userPassword" /></td>
+            </tr>
+            <tr>
+                <td><label>name</label></td>
+                <td><input type="text" name="userName" id="userName"></td>
+            </tr>
+            <tr>
+                <td><label>Introuduction</label></td>
+                <td><input type="text" name="userIntroduction" id="userIntroduction"></td>
+            </tr>
+        </table>
+        <input type="button" value="회원가입" id="btn">
+    </fieldset>
+    <script>
+        $('#btn').on('click', function() {
+            var arr = {
+                userEmail: $('#userEmail').val(),
+                userPassword: $('#userPassword').val(),
+                userName: $('#userName').val(),
+                userIntroduction: $('#userIntroduction').val()
+            };
+            $.ajax({
+                url: '../user/' + $('#userEmail').val(),
+                type: 'POST',
+                data: JSON.stringify(arr),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                async: true,
+                success: function(data) {
+                    alert(JSON.stringify(data));
+                    window.location.href = "http://127.0.0.1:52276/user";
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Page</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <h1>Edit Page</h1>
+    <hr />
+    <fieldset>
+        <legend>Edit data</legend>
+        <table>
+            <tr>
+                <td colspan="2"><input type="text" id="userIdx" value="<%=data.userIdx%>" disabled hidden="true" /></td>
+            </tr>
+            <tr>
+                <td><label>Email</label></td>
+                <td><input type="text" name="userEmail" id="userEmail" value="<%=data.userEmail%>" disabled /></td>
+            </tr>
+            <tr>
+                <td><label>Password</label></td>
+                <td><input type="password" name="userPassword" id="userPassword" value="<%=data.userPassword%>" /></td>
+            </tr>
+            <tr>
+                <td><label>Name</label></td>
+                <td><input type="text" name="userName" id="userName" value="<%=data.userName%>"></td>
+            </tr>
+            <tr>
+                <td><label>Introduction</label></td>
+                <td><input type="text" name="userIntroduction" id="userIntroduction" value="<%=data.userIntroduction%>"></td>
+            </tr>
+        </table>
+        <input type="button" id="btn" value="수정완료">
+    </fieldset>
+    <script>
+        $('#btn').on('click', function() {
+            var arr = {
+                userEmail: $('#userEmail').val(),
+                userPassword: $('#userPassword').val(),
+                userName: $('#userName').val(),
+                userIntroduction: $('#userIntroduction').val(),
+                userIdx: $('#userIdx').val()
+            };
+            $.ajax({
+                url: '../' + $('#userIdx').val(),
+                type: 'PUT',
+                data: JSON.stringify(arr),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                async: true,
+                success: function(data) {
+                    alert(JSON.stringify(data));
+                    opener.parent.location.reload();
+                    window.close();
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

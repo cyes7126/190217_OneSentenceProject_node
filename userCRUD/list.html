@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>List Page</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <h1>Member List page</h1>
+    <a href="../userInsert">Insert Member</a>
+    <hr />
+    <table width="100%" border="1">
+        <tr>
+            <th>Idx</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Introduction</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+        <% data.forEach(function(item,index){%>
+        <tr>
+            <td>
+                <%= item.userIdx %>
+            </td>
+            <td>
+                <%= item.userEmail %>
+            </td>
+            <td>
+                <%= item.userName %>
+            </td>
+            <td>
+                <%= item.userIntroduction %>
+            </td>
+            <td><a href="#" onclick="edit(<%=item.userIdx%>)">edit</a></td>
+            <td><a href="#" onclick="remove(<%=item.userIdx%>)">delete</a></td>
+        </tr>
+        <%});%>
+    </table>
+    <script>
+        function edit(idx) {
+            var url = "../user/editForm/" + idx;
+            var popupOption = "width=600,height=600";
+            window.open(url, 'user Edit', popupOption);
+        }
+
+        function remove(idx) {
+            var arr = {
+                userIdx: idx
+            };
+            alert(JSON.stringify(arr));
+            $.ajax({
+                url: '../user/' + idx,
+                type: 'DELETE',
+                data: JSON.stringify(arr),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                async: true,
+                success: function(data) {
+                    alert('delete success');
+                    window.location.reload();
+                },
+                error: function() {
+                    alert('error!');
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>

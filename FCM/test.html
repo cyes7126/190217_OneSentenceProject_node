@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <h1>Test page</h1>
+    <input type="text" id="text">
+    <input type="button" id="btn" value="전송">
+    
+    <script>
+    $('#btn').on('click', function(){
+		var text = $('#text').val();
+        var arr = {"message": {"token" : "dVns64R_5i0:APA91bGL7w8bi3PGOOgu8m-J5icndrnhGDohTS4Cc3NXQLDYtr6RttxJIYZfJVacpd5qxW_UNUC2DPpheIG9oc3E6Ld-5PFLQD4wjA9VvxxNgcIs64-_9bqG7WB_TxBsmuvbp2JdCR1F", "notification" : {
+      "body" : text,"title" : "bookTitle"}}};
+        console.log(arr);
+		$.ajax({
+			url : 'https://fcm.googleapis.com/v1/projects/myproject-b5ae1/messages:send HTTP/1.1',
+			type:'POST',
+            Authorization:'dVns64R_5i0:APA91bGL7w8bi3PGOOgu8m-J5icndrnhGDohTS4Cc3NXQLDYtr6RttxJIYZfJVacpd5qxW_UNUC2DPpheIG9oc3E6Ld-5PFLQD4wjA9VvxxNgcIs64-_9bqG7WB_TxBsmuvbp2JdCR1F',
+			data : JSON.stringify(arr),
+			dataType: 'json',
+			contentType : 'application/json; charset=utf-8',
+			async : true,
+			success : function(data){
+				alert(JSON.stringify(data));
+			},error:function(error){
+				console.log(error);
+			}
+		});
+	});
+    </script>
+</body>
+
+</html>

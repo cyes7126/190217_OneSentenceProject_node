@@ -1,0 +1,22 @@
+--curl -X POST -H "Authorization: key=AAAAdG9cMgI:APA91bHyKrXf6wy9aXMMhKdBQv-oqPSmWUWVNY8Ei65TaBznXv402dOnve_S-tP6n8fmiBiNxZz8ETYygxXt7z_G67x7QSfMpKLhrcVUniXihKcqaP_1hp3ELnXOnz2e2eqtCCIN371I" -H "Content-Type: application/json" -d '{"notification": {"title": "Portugal vs. Denmark","body": "5 to 1","icon": "firebase-logo.png"},"to":"dVns64R_5i0:APA91bGL7w8bi3PGOOgu8m-J5icndrnhGDohTS4Cc3NXQLDYtr6RttxJIYZfJVacpd5qxW_UNUC2DPpheIG9oc3E6Ld-5PFLQD4wjA9VvxxNgcIs64-_9bqG7WB_TxBsmuvbp2JdCR1F"}' "https://fcm.googleapis.com/fcm/send"
+
+
+--curl -X POST -H "Authorization: key=AAAAdG9cMgI:APA91bHyKrXf6wy9aXMMhKdBQv-oqPSmWUWVNY8Ei65TaBznXv402dOnve_S-tP6n8fmiBiNxZz8ETYygxXt7z_G67x7QSfMpKLhrcVUniXihKcqaP_1hp3ELnXOnz2e2eqtCCIN371I" -H "Content-Type: application/json" -d '{
+"notification": {
+    "title": "Portugal vs. Denmark",
+    "body": "5 to 1",
+    "icon": "firebase-logo.png",
+    "click_action": "http://localhost:8081"
+  },
+  "to": "cliDMO2ruvU:APA91bGzryzWdGZdOK_ngwbI2loXOokTccVWmuPJ6rr23DbFDxlHk5pFZaEweVBlyY5PFoKyM-LAKSDSZgD55zuopaFDVtiUEH33hcykrKDD3NW3mohIu04vD_pkgkrhrEZjNNcP8MVN"
+}' "https://fcm.googleapis.com/fcm/send"
+
+
+
+//완성
+curl -X POST -H "Authorization: key=AAAAdG9cMgI:APA91bHyKrXf6wy9aXMMhKdBQv-oqPSmWUWVNY8Ei65TaBznXv402dOnve_S-tP6n8fmiBiNxZz8ETYygxXt7z_G67x7QSfMpKLhrcVUniXihKcqaP_1hp3ELnXOnz2e2eqtCCIN371I" -H "Content-Type: application/json" -d "{\"to\": \"dVns64R_5i0:APA91bGL7w8bi3PGOOgu8m-J5icndrnhGDohTS4Cc3NXQLDYtr6RttxJIYZfJVacpd5qxW_UNUC2DPpheIG9oc3E6Ld-5PFLQD4wjA9VvxxNgcIs64-_9bqG7WB_TxBsmuvbp2JdCR1F\", \"notification\": { \"title\": \"OneSentence\", \"body\": \"New Sentence\", \"icon\": \"logo.png\" }}" "https://fcm.googleapis.com/fcm/send"
+
+dVns64R_5i0:APA91bGL7w8bi3PGOOgu8m-J5icndrnhGDohTS4Cc3NXQLDYtr6RttxJIYZfJVacpd5qxW_UNUC2DPpheIG9oc3E6Ld-5PFLQD4wjA9VvxxNgcIs64-_9bqG7WB_TxBsmuvbp2JdCR1F  -- pc
+
+
+fkCcOfGPysE:APA91bE1ZsEQmhhwzwyu23DZ5kI3Ip3Whf_Uu89_K_2VE0uZBqT8TSm9rqb5noJAkZQvCXnTpJogmgNcuk5A9-g-1RLezfT8r5CQn-ECE1ccP0FFwNJdZRnbtTfvPxZXpt1lDotpoDds  --다혜
