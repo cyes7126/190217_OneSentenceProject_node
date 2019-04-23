@@ -8,7 +8,7 @@ var mysql = require('mysql');
 
 //db연결
 var client = mysql.createConnection({
-    host: '아마존인스턴스',
+    host: 'aws-앤드포인트 주소',
     user: 'bit2',
     password: '1234',
     database: 'onesentence'
