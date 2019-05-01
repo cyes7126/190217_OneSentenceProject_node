@@ -18,3 +18,7 @@
 <li>Naver Login API : 톰캣서버에 인증키 전송. 받아온데이터 DB저장</li>
 <li>User CRUD : node의 express모듈사용한 웹서버 생성, mysql모듈로 db연동★</li>
 </ol>
+
+<br>
+<h2> spring사용 코드는 아래의 링크에 있습니다.</h2>
+https://github.com/cyes7126/190217_OneSentenceProject_Spring
